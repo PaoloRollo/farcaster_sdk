@@ -1,6 +1,6 @@
 name: farcaster_sdk
 description: Unofficial Flutter sdk for Farcaster APIs.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/PaoloRollo/farcaster_sdk
 
 environment:
@@ -12,7 +12,6 @@ dependencies:
   fixnum: ^1.1.0
   flutter:
     sdk: flutter
-  flutter_dotenv: ^5.1.0
   grpc: ^3.2.3
   protobuf: ^3.0.0
   web3dart: ^2.7.1
