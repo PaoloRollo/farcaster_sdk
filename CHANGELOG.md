@@ -10,3 +10,10 @@
 ## 0.0.3
 
 * Removed flutter_dotenv dependency.
+
+## 0.0.4
+
+* Added `getHomeFeed` method.
+* Added `getPopularFeed` method.
+* Added `getSuggestedUsers` method.
+* Removed two Warpcast client-only methods.
