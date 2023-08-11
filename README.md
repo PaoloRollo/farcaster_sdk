@@ -1,6 +1,6 @@
 # farcaster_sdk
 
-[](farcaster_sdk)[![Pub](https://img.shields.io/pub/v/farcaster_sdk.svg?label=dev&include_prereleases)](https://pub.dev/packages/farcaster_sdk)
+[](farcaster_sdk)[![Pub](https://img.shields.io/pub/v/farcaster_sdk.svg?label=pub.dev&include_prereleases)](https://pub.dev/packages/farcaster_sdk)
 
 This is the unofficial Flutter SDK for the Farcaster protocol. It contains two useful API clients (one for Farcaster Hubs using `Hubble` and one for `Warpcast`) to be used in your Flutter app.
 
