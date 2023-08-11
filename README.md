@@ -78,7 +78,9 @@ void main() async {
 
 - [x] Check authentication for Warpcast client
 - [x] Stable version for Warpcast client
+- [] Add documentation for Warpcast client
 - [] Stable version for Hubble client
+- [] Add documentation for Hubble client
 - [] Create unified models for both Hubble and Warpcast client to have consistency in the results
 
 ## License
