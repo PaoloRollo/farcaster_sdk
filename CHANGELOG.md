@@ -16,4 +16,5 @@
 * Added `getHomeFeed` method.
 * Added `getPopularFeed` method.
 * Added `getSuggestedUsers` method.
-* Removed two Warpcast client-only methods.
+* Added `getUnseen` method.
+* Added `discoverChannels` method.

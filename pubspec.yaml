@@ -1,5 +1,5 @@
 name: farcaster_sdk
-description: Unofficial Flutter sdk for Farcaster APIs.
+description: This library allows you to call different Farcaster APIs to build your native app based on Farcaster! Currently working only with Warpcast API.
 version: 0.0.4
 repository: https://github.com/PaoloRollo/farcaster_sdk
 

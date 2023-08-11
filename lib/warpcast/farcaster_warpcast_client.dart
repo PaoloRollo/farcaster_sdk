@@ -779,37 +779,35 @@ class FarcasterWarpcastClient {
     }
   }
 
-  // NOT WORKING: returning 401 (Warpcast Client only?)
-  // Future<dynamic> getUnseen() async {
-  //   var response = await _dio.get("/v2/unseen");
-  //   if (response.statusCode == 200) {
-  //     return response.data["result"];
-  //   } else {
-  //     throw Exception("Failed to get unseen: ${response.data}");
-  //   }
-  // }
+  Future<dynamic> getUnseen() async {
+    var response = await _dio.get("/v2/unseen");
+    if (response.statusCode == 200) {
+      return response.data["result"];
+    } else {
+      throw Exception("Failed to get unseen: ${response.data}");
+    }
+  }
 
-  // NOT WORKING: returning 401 (Warpcast Client only?)
-  // Future<dynamic> discoverChannels({int? limit, String? cursor}) async {
-  //   if (limit != null && limit > 100) {
-  //     throw Exception("Limit is too high: max 100.");
-  //   }
-  //   dynamic queryParameters = {
-  //     "limit": limit ?? 25,
-  //   };
-  //   if (cursor != null && cursor != "") {
-  //     queryParameters["cursor"] = cursor;
-  //   }
-  //   var response = await _dio.get(
-  //     "/v2/discover-channels",
-  //     queryParameters: queryParameters,
-  //   );
-  //   if (response.statusCode == 200) {
-  //     return response.data["result"];
-  //   } else {
-  //     throw Exception("Failed to get suggested users: ${response.data}");
-  //   }
-  // }
+  Future<dynamic> discoverChannels({int? limit, String? cursor}) async {
+    if (limit != null && limit > 100) {
+      throw Exception("Limit is too high: max 100.");
+    }
+    dynamic queryParameters = {
+      "limit": limit ?? 25,
+    };
+    if (cursor != null && cursor != "") {
+      queryParameters["cursor"] = cursor;
+    }
+    var response = await _dio.get(
+      "/v2/discover-channels",
+      queryParameters: queryParameters,
+    );
+    if (response.statusCode == 200) {
+      return response.data["result"];
+    } else {
+      throw Exception("Failed to get suggested users: ${response.data}");
+    }
+  }
 }
 
 class AppInterceptors extends Interceptor {
