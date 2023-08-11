@@ -4,6 +4,17 @@ This is the unofficial Flutter SDK for the Farcaster protocol. It contains two u
 
 ## Getting started
 
+### Available platforms
+
+This library is available for both `Flutter` and `Dart` projects. These are the platforms where you can use this sdk:
+- [x] Android
+- [x] iOS
+- [x] Windows
+- [x] Linux
+- [x] MacOS
+
+This package **does not work** on the web.
+
 ### Add dependency
 
 You can use this command to add `farcaster_sdk` to your Flutter app:
