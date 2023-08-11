@@ -6,3 +6,7 @@
 
 * Warpcast version is stable.
 * Added example for Warpcast client.
+
+## 0.0.3
+
+* Removed flutter_dotenv dependency.
