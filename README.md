@@ -1,8 +1,10 @@
 # farcaster_sdk
 
+[](farcaster_sdk)[![Pub](https://img.shields.io/pub/v/farcaster_sdk.svg?label=dev&include_prereleases)](https://pub.dev/packages/farcaster_sdk)
+
 This is the unofficial Flutter SDK for the Farcaster protocol. It contains two useful API clients (one for Farcaster Hubs using `Hubble` and one for `Warpcast`) to be used in your Flutter app.
 
-## Getting started
+## 📚 Getting started
 
 ### Available platforms
 
@@ -38,7 +40,7 @@ dependencies:
 
 The current latest version is `0.0.4`.
 
-## Usage
+## ❓ Usage
 
 The goal of this library is to be really simple to use in your Flutter apps. 
 
@@ -74,7 +76,7 @@ void main() async {
 }
 ```
 
-## TODOs
+## 🧾 TODOs
 
 - [x] Check authentication for Warpcast client
 - [x] Stable version for Warpcast client
@@ -83,10 +85,10 @@ void main() async {
 - [] Add documentation for Hubble client
 - [] Create unified models for both Hubble and Warpcast client to have consistency in the results
 
-## License
+## 🛡️ License
 
 This project is licensed under the terms of the `MIT` license. See [LICENSE](/LICENSE) for more details.
 
-## Disclaimer
+## ‼️ Disclaimer
 
 _This code is being provided as is. No guarantee, representation or warranty is being made, express or implied, as to the safety or correctness of the code. It has not been audited and as such there can be no assurance it will work as intended, and users may experience delays, failures, errors, omissions or loss of transmitted information. Nothing in this repo should be construed as investment advice or legal advice for any particular facts or circumstances and is not meant to replace competent counsel. It is strongly advised for you to contact a reputable attorney in your jurisdiction for any questions or concerns with respect thereto. Paolo Rollo is not liable for any use of the foregoing, and users should proceed with caution and use at their own risk._
