@@ -140,6 +140,21 @@ class _WarpcastPageState extends State<WarpcastPage> {
     print(user);
   }
 
+  _getHomeFeed() async {
+    final homeFeed = await warpcastClient.getHomeFeed(limit: 10);
+    print(homeFeed);
+  }
+
+  _getPopularFeed() async {
+    final popularFeed = await warpcastClient.getPopularFeed(limit: 10);
+    print(popularFeed);
+  }
+
+  _getSuggestedUsers() async {
+    final suggestedUsers = await warpcastClient.getSuggestedUsers(limit: 10);
+    print(suggestedUsers);
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -248,6 +263,21 @@ class _WarpcastPageState extends State<WarpcastPage> {
               ElevatedButton(
                 onPressed: _getUserByVerification,
                 child: const Text('Get user by verification'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: _getHomeFeed,
+                child: const Text('Get home feed'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: _getPopularFeed,
+                child: const Text('Get popular feed'),
+              ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: _getSuggestedUsers,
+                child: const Text('Get suggested users'),
               ),
               const SizedBox(height: 32)
             ],

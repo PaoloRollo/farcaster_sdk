@@ -691,6 +691,125 @@ class FarcasterWarpcastClient {
       throw Exception("Failed to get signer request: ${response.data}");
     }
   }
+
+  Future<dynamic> getHomeFeed(
+      {int? limit, bool? setSeen, String? cursor}) async {
+    if (limit != null && limit > 100) {
+      throw Exception("Limit is too high: max 100.");
+    }
+
+    dynamic queryParameters = {
+      "limit": limit ?? 25,
+      "setSeen": true,
+    };
+
+    if (setSeen != null) {
+      queryParameters["setSeen"] = setSeen;
+    }
+
+    if (cursor != null && cursor != "") {
+      queryParameters["cursor"] = cursor;
+    }
+
+    var response = await _dio.get(
+      "/v2/home-feed",
+      queryParameters: queryParameters,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data["result"];
+    } else {
+      throw Exception("Failed to get home feed: ${response.data}");
+    }
+  }
+
+  Future<dynamic> getPopularFeed(
+      {int? limit, bool? setSeen, String? cursor}) async {
+    if (limit != null && limit > 100) {
+      throw Exception("Limit is too high: max 100.");
+    }
+
+    dynamic queryParameters = {
+      "limit": limit ?? 25,
+      "setSeen": true,
+    };
+
+    if (setSeen != null) {
+      queryParameters["setSeen"] = setSeen;
+    }
+
+    if (cursor != null && cursor != "") {
+      queryParameters["cursor"] = cursor;
+    }
+
+    var response = await _dio.get(
+      "/v2/popular-casts-feed",
+      queryParameters: queryParameters,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data["result"];
+    } else {
+      throw Exception("Failed to get popular feed: ${response.data}");
+    }
+  }
+
+  Future<dynamic> getSuggestedUsers({int? limit, String? cursor}) async {
+    if (limit != null && limit > 100) {
+      throw Exception("Limit is too high: max 100.");
+    }
+
+    dynamic queryParameters = {
+      "limit": limit ?? 25,
+    };
+
+    if (cursor != null && cursor != "") {
+      queryParameters["cursor"] = cursor;
+    }
+
+    var response = await _dio.get(
+      "/v2/suggested-users",
+      queryParameters: queryParameters,
+    );
+
+    if (response.statusCode == 200) {
+      return response.data["result"];
+    } else {
+      throw Exception("Failed to get suggested users: ${response.data}");
+    }
+  }
+
+  // NOT WORKING: returning 401 (Warpcast Client only?)
+  // Future<dynamic> getUnseen() async {
+  //   var response = await _dio.get("/v2/unseen");
+  //   if (response.statusCode == 200) {
+  //     return response.data["result"];
+  //   } else {
+  //     throw Exception("Failed to get unseen: ${response.data}");
+  //   }
+  // }
+
+  // NOT WORKING: returning 401 (Warpcast Client only?)
+  // Future<dynamic> discoverChannels({int? limit, String? cursor}) async {
+  //   if (limit != null && limit > 100) {
+  //     throw Exception("Limit is too high: max 100.");
+  //   }
+  //   dynamic queryParameters = {
+  //     "limit": limit ?? 25,
+  //   };
+  //   if (cursor != null && cursor != "") {
+  //     queryParameters["cursor"] = cursor;
+  //   }
+  //   var response = await _dio.get(
+  //     "/v2/discover-channels",
+  //     queryParameters: queryParameters,
+  //   );
+  //   if (response.statusCode == 200) {
+  //     return response.data["result"];
+  //   } else {
+  //     throw Exception("Failed to get suggested users: ${response.data}");
+  //   }
+  // }
 }
 
 class AppInterceptors extends Interceptor {

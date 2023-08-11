@@ -1,6 +1,6 @@
 name: farcaster_sdk
 description: Unofficial Flutter sdk for Farcaster APIs.
-version: 0.0.3
+version: 0.0.4
 repository: https://github.com/PaoloRollo/farcaster_sdk
 
 environment:
