@@ -36,7 +36,7 @@ dependencies:
     farcaster_sdk: ^REPLACE_WITH_LATEST_VERSION
 ```
 
-The current latest version is `0.0.1`.
+The current latest version is `0.0.4`.
 
 ## Usage
 
