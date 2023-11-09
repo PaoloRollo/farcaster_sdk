@@ -1,15 +1,15 @@
-import 'package:farcaster_sdk/hubble/services/rpc.pbgrpc.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/rpc.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 
-class HubService {
-  HubService._internal();
-  static final HubService _instance = HubService._internal();
+class AdminGrpcService {
+  AdminGrpcService._internal();
+  static final AdminGrpcService _instance = AdminGrpcService._internal();
 
-  factory HubService() => _instance;
+  factory AdminGrpcService() => _instance;
 
-  static HubService get instance => _instance;
+  static AdminGrpcService get instance => _instance;
 
-  late HubServiceClient _hubClient;
+  late AdminServiceClient _hubClient;
 
   Future<void> init(
     String hubbleUrl,
@@ -19,7 +19,7 @@ class HubService {
     _createChannel(hubbleUrl, hubblePort, channelCredentials);
   }
 
-  HubServiceClient get hubClient => _hubClient;
+  AdminServiceClient get hubClient => _hubClient;
 
   _createChannel(
     String hubbleUrl,
@@ -33,6 +33,6 @@ class HubService {
         credentials: channelCredentials ?? const ChannelCredentials.insecure(),
       ),
     );
-    _hubClient = HubServiceClient(channel);
+    _hubClient = AdminServiceClient(channel);
   }
 }

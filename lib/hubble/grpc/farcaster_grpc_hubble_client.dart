@@ -1,38 +1,38 @@
 import 'dart:convert';
 
-import 'package:farcaster_sdk/hubble/admin_service.dart';
-import 'package:farcaster_sdk/hubble/hub_service.dart';
-import 'package:farcaster_sdk/hubble/services/hub_event.pb.dart';
-import 'package:farcaster_sdk/hubble/services/id_registry_event.pb.dart';
-import 'package:farcaster_sdk/hubble/services/message.pb.dart';
-import 'package:farcaster_sdk/hubble/services/name_registry_event.pb.dart';
-import 'package:farcaster_sdk/hubble/services/request_response.pb.dart';
-import 'package:farcaster_sdk/hubble/services/username_proof.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/admin_grpc_service.dart';
+import 'package:farcaster_sdk/hubble/grpc/hub_grpc_service.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/hub_event.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/id_registry_event.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/message.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/name_registry_event.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/request_response.pb.dart';
+import 'package:farcaster_sdk/hubble/grpc/services/username_proof.pb.dart';
 import 'package:grpc/grpc.dart';
 import 'package:fixnum/fixnum.dart' as $fixnum;
 
-class FarcasterHubbleClient {
-  FarcasterHubbleClient._internal();
-  static final FarcasterHubbleClient _instance =
-      FarcasterHubbleClient._internal();
+class FarcasterGrpcHubbleClient {
+  FarcasterGrpcHubbleClient._internal();
+  static final FarcasterGrpcHubbleClient _instance =
+      FarcasterGrpcHubbleClient._internal();
 
-  factory FarcasterHubbleClient() => _instance;
+  factory FarcasterGrpcHubbleClient() => _instance;
 
-  static FarcasterHubbleClient get instance => _instance;
+  static FarcasterGrpcHubbleClient get instance => _instance;
 
-  late HubService _hubService;
-  late AdminService _adminService;
+  late HubGrpcService _hubService;
+  late AdminGrpcService _adminService;
 
-  HubService get hubService => _hubService;
-  AdminService get adminService => _adminService;
+  HubGrpcService get hubService => _hubService;
+  AdminGrpcService get adminService => _adminService;
 
   Future<void> init(
     String hubbleUrl,
     int hubblePort,
     ChannelCredentials? channelCredentials,
   ) async {
-    _hubService = HubService();
-    _adminService = AdminService();
+    _hubService = HubGrpcService();
+    _adminService = AdminGrpcService();
     await _hubService.init(hubbleUrl, hubblePort, channelCredentials);
     await _adminService.init(hubbleUrl, hubblePort, channelCredentials);
   }
